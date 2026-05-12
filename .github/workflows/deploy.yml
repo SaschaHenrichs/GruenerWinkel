@@ -32,13 +32,12 @@ jobs:
         run: ./node_modules/.bin/craco build
 
       - name: Auf Strato deployen via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: Dylan700/sftp-upload-action@latest
         with:
           server: 53357779.ssh.w1.strato.hosting
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 22
-          local_path: frontend/build/*
-          remote_path: /kgvgruenerwinkel
-          sftp_only: true
-          delete_remote_files: true
+          folders: |
+            + frontend/build/ => kgvgruenerwinkel/
+          delete: true
