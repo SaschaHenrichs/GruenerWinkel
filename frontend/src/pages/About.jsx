@@ -14,27 +14,19 @@ const About = () => {
 
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10 grid lg:grid-cols-[1fr_1.1fr] gap-14 items-start">
-          {/* Decorative tile instead of stock photo */}
+          {/* Vereinsfoto-Kachel */}
           <div className="relative lg:sticky lg:top-28">
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
-              <div className="absolute inset-0 bg-[#4A7C59] blob-shape-1" />
-              <div className="absolute inset-5 bg-[#F4F1E1] blob-shape-2 grid place-items-center p-8 dots-pattern">
-                <div className="text-center">
-                  <div className="font-script text-3xl text-[#E2725B] mb-2">gegründet</div>
-                  <div className="font-display text-[88px] sm:text-[120px] font-semibold text-[#1E2E24] leading-none">1946</div>
-                  <div className="font-script text-2xl text-[#4A7C59] mt-3">— ein Stück Heimat —</div>
-                  <div className="mt-6 grid grid-cols-2 gap-3 max-w-[240px] mx-auto">
-                    <div className="bg-white rounded-2xl p-3 border border-[#E8E3D3]">
-                      <div className="font-display text-2xl font-semibold text-[#4A7C59]">54</div>
-                      <div className="text-[10px] uppercase tracking-wider font-bold text-[#4B5E53]">Parzellen</div>
-                    </div>
-                    <div className="bg-white rounded-2xl p-3 border border-[#E8E3D3]">
-                      <div className="font-display text-2xl font-semibold text-[#E2725B]">80</div>
-                      <div className="text-[10px] uppercase tracking-wider font-bold text-[#4B5E53]">Jahre</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative w-full max-w-md mx-auto">
+              <img
+                src="/images/gallery/g04.jpg"
+                alt="KGV Grüner Winkel – Eindruck"
+                className="w-full aspect-[4/5] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
+              />
+              <img
+                src="/images/gallery/g18.jpg"
+                alt="Detailaufnahme"
+                className="absolute -bottom-8 -left-6 w-36 h-36 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
+              />
               <div className="absolute -top-3 -right-3 bg-[#F9A03F] text-[#1E2E24] rounded-full px-4 py-2 font-script text-xl rotate-[6deg] shadow-lg animate-wiggle">
                 seit 80 Jahren
               </div>
@@ -89,7 +81,7 @@ const About = () => {
                   { y: "1996", t: "50-jähriges Jubiläum", d: "Die Presse berichtet, der Verein feiert mit Mitgliedern und Gartenfreunden." },
                   { y: "2006", t: "Festschrift zum 60.", d: "Eine eigene Festschrift wird zum Jubiläum herausgegeben." },
                   { y: "Heute", t: "Lebendige Gemeinschaft", d: "54 Parzellen, ein gepflegtes Vereinsheim, regelmäßige Treffen und Aktionen." },
-                  { y: "2026", t: "80 Jahre · Jubiläum", d: "Ein besonderes Jahr für uns – wir feiern stolze 80 Jahre Grüner Winkel.", highlight: true },
+                  { y: "2026", t: "80 Jahre Grüner Winkel", d: "Ein stolzer Meilenstein – acht Jahrzehnte Vereinsgeschichte, gewachsen mit der Nachbarschaft.", highlight: true },
                 ].map((e) => (
                   <li key={e.y} className="flex gap-5">
                     <div className={`shrink-0 w-20 font-display font-semibold ${e.highlight ? "text-[#E2725B]" : "text-[#4A7C59]"} text-lg pt-1`}>

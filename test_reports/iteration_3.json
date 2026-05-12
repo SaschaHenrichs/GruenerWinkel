@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend regression for v3 iteration (45 real photos + Jubiläumsfest/Schottergärten removal). All review requirements verified end-to-end via Playwright on the public REACT_APP_BACKEND_URL. Backend smoke also passed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_3.json"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Galerie.jsx: 45 photos mapped with data-testid gallery-photo-1..45; lightbox uses data-testid gallery-lightbox + gallery-lightbox-close. Open/close cycle works.",
+    "Home.jsx: hero collage now uses real photos /images/gallery/g10.jpg, g03.jpg, g16.jpg (all naturalWidth > 0); eyebrow now reads 'Seit 1946 in Duisburg-Wedau'; 'Jubiläumsjahr 2026' and 'Wir feiern 80 Jahre' fully removed. Note: a generic 'Wir feiern' substring still exists inside the Gemeinschaft tile copy ('Wir feiern, helfen und lachen miteinander') — this is intentional/non-celebratory and not the removed Jubiläum hint.",
+    "Aktuelles.jsx: 'Keine Schottergärten in der Anlage', 'Save the year', and 'Wir werden' text fully removed; new photo banner renders g06/g22/g35/g42 successfully.",
+    "Vorstand.jsx: photo banner renders g08/g19/g30 successfully (naturalWidth 900–1600).",
+    "All 45 gallery images served by frontend with HTTP 200 and decoded naturalWidth between 720–1600 px — properly web-optimized, no broken images.",
+    "Backend: GET /api/ returns 200 with KGV Gruener Winkel API; POST /api/contact returns 200 with persisted id + timestamp. No regression."
+  ],
+  "updated_files": [],
+  "success_rate": {
+    "backend": "100% (smoke: GET /api/, POST /api/contact)",
+    "frontend": "100%"
+  },
+  "test_credentials": "n/a – public site, no auth",
+  "seed_data_creation": "One TEST_ contact submission created via POST /api/contact (TEST/User, test_user@example.com, nachricht='iter3 smoke'). Main agent may purge via DB if desired.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iteration 3 verified: (a) /galerie shows 45 real photos with data-testid gallery-photo-1..45, all naturalWidth>0, sample sizes 720/1600 etc.; lightbox opens on click and gallery-lightbox-close dismisses it. (b) Home eyebrow 'Seit 1946 in Duisburg-Wedau' present; 'Jubiläumsjahr 2026' & 'Wir feiern 80 Jahre' absent; hero photos g10/g03/g16 load. (c) Aktuelles: Schottergärten/Save the year/Wir werden text absent; banner photos g06/g22/g35/g42 load. (d) Vorstand: banner photos g08/g19/g30 load. (e) All routes /, /wir-ueber-uns, /vorstand, /aktuelles, /recht-und-regeln, /galerie, /anfahrt, /kontakt, /vereinsheim, /winterdienst returned HTTP 200. (f) Zero console/page errors. Tip: don't use a loose text=/404|NotFound/i regex on /recht-und-regeln — it false-positives via incidental content; assert by data-testid recht-page or absence of NotFound testid instead.",
+  "rca of the issue": "No issues found in this iteration."
+}

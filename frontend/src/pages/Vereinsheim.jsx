@@ -13,20 +13,18 @@ const Vereinsheim = () => {
 
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
-          {/* Decorative tile */}
-          <div className="relative w-full aspect-[5/6] max-w-md mx-auto">
-            <div className="absolute inset-0 bg-[#1E2E24] blob-shape-1" />
-            <div className="absolute inset-4 bg-[#F9A03F] blob-shape-2" />
-            <div className="absolute inset-12 bg-[#FDFBF7] blob-shape-3 grid place-items-center p-8 dots-pattern">
-              <div className="text-center">
-                <Home className="w-12 h-12 text-[#4A7C59] mx-auto mb-3" strokeWidth={1.5} />
-                <div className="font-script text-3xl text-[#E2725B]">unser</div>
-                <div className="font-display text-4xl sm:text-5xl font-semibold text-[#1E2E24] -mt-1">
-                  Vereinsheim
-                </div>
-                <div className="font-script text-xl text-[#4A7C59] mt-2">— wir lassen es krachen —</div>
-              </div>
-            </div>
+          {/* Vereinsfoto */}
+          <div className="relative w-full max-w-md mx-auto">
+            <img
+              src="/images/gallery/g25.jpg"
+              alt="Vereinsheim KGV Grüner Winkel"
+              className="w-full aspect-[5/6] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
+            />
+            <img
+              src="/images/gallery/g41.jpg"
+              alt="Detail aus dem Verein"
+              className="absolute -bottom-8 -right-6 w-40 h-40 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
+            />
             <div className="absolute -top-3 -right-3 bg-[#4A7C59] text-white rounded-full px-4 py-2 font-script text-lg rotate-[6deg] shadow-lg animate-wiggle">
               keine Nachbarn!
             </div>

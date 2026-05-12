@@ -1,81 +1,75 @@
+import { useState } from "react";
 import PageHero from "@/components/PageHero";
-import { Image as ImageIcon, Camera } from "lucide-react";
+import { X, Camera } from "lucide-react";
+
+// 45 echte Vereinsfotos aus dem Drive + von der bestehenden Seite
+const PHOTOS = Array.from({ length: 45 }, (_, i) => ({
+  src: `/images/gallery/g${String(i + 1).padStart(2, "0")}.jpg`,
+  alt: `Eindruck aus dem KGV Grüner Winkel ${i + 1}`,
+}));
+
+const radii = [
+  "rounded-[40px_60px_30px_50px]",
+  "rounded-[30px_50px_60px_40px]",
+  "rounded-[60px_30px_50px_40px]",
+  "rounded-[50px_60px_30px_40px]",
+  "rounded-[30px_50px_50px_60px]",
+  "rounded-[40px_50px_60px_30px]",
+];
 
 const Galerie = () => {
-  // Decorative tiles – keine Stock-Fotos. Wird durch User-Bilder ersetzt.
-  const tiles = [
-    { label: "Frühling", sub: "März – Mai", color: "#4A7C59", shape: "blob-shape-1" },
-    { label: "Sommer", sub: "Juni – August", color: "#F9A03F", shape: "blob-shape-2" },
-    { label: "Herbst", sub: "September – November", color: "#E2725B", shape: "blob-shape-3" },
-    { label: "Vereinsheim", sub: "unser Treffpunkt", color: "#4A7C59", shape: "blob-shape-2" },
-    { label: "Feste", sub: "wenn richtig gefeiert wird", color: "#E2725B", shape: "blob-shape-1" },
-    { label: "Natur pur", sub: "im Sportpark Wedau", color: "#F9A03F", shape: "blob-shape-3" },
-  ];
+  const [active, setActive] = useState(null);
 
   return (
     <div data-testid="galerie-page">
       <PageHero
         eyebrow="Galerie"
         title="Bilder aus unserem Vereinsleben."
-        subtitle="Demnächst an dieser Stelle: echte Eindrücke aus dem Grünen Winkel."
+        subtitle="Eindrücke aus dem Grünen Winkel – Blumen, Beete, Begegnungen."
         breadcrumb="Galerie"
       />
 
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
-          <div className="bg-white border border-[#E8E3D3] rounded-3xl p-8 sm:p-10 mb-12 flex flex-col md:flex-row items-start md:items-center gap-6">
-            <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#F9A03F]/15 text-[#F9A03F] blob-shape-1 shrink-0">
-              <Camera className="w-6 h-6" />
+          <div className="bg-white border border-[#E8E3D3] rounded-3xl p-6 sm:p-8 mb-10 flex flex-col md:flex-row items-start md:items-center gap-5">
+            <span className="grid place-items-center w-12 h-12 rounded-2xl bg-[#F9A03F]/15 text-[#F9A03F] blob-shape-1 shrink-0">
+              <Camera className="w-5 h-5" />
             </span>
-            <div className="flex-1">
-              <span className="font-script text-xl text-[#E2725B] block">— bald hier —</span>
-              <h3 className="font-display text-2xl font-semibold mb-1 mt-1">
-                Echte Bilder aus dem Verein folgen
-              </h3>
-              <p className="text-[#4B5E53] text-sm leading-relaxed">
-                Wir möchten hier keine austauschbaren Stockfotos zeigen, sondern Bilder, die
-                wirklich aus dem Grünen Winkel kommen. Habt ihr schöne Fotos vom Vereinsleben?
-                Sendet sie uns gerne an{" "}
-                <a
-                  href="mailto:info@kgvgruenerwinkel.de"
-                  className="text-[#4A7C59] font-bold hover:underline"
-                >
-                  info@kgvgruenerwinkel.de
-                </a>
-                .
-              </p>
-            </div>
+            <p className="text-sm text-[#4B5E53] leading-relaxed">
+              <span className="font-script text-xl text-[#E2725B]">— alle Bilder aus dem Verein —</span>
+              <br />
+              Habt ihr eigene Fotos, die hier nicht fehlen dürfen? Sendet sie gerne an{" "}
+              <a href="mailto:info@kgvgruenerwinkel.de" className="text-[#4A7C59] font-bold hover:underline">
+                info@kgvgruenerwinkel.de
+              </a>
+              .
+            </p>
           </div>
 
-          {/* Decorative season tiles */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tiles.map((t, i) => (
-              <div
-                key={t.label}
-                data-testid={`gallery-tile-${t.label.toLowerCase()}`}
-                className="relative aspect-[4/5] overflow-hidden border border-[#E8E3D3] bg-white"
-                style={{ borderRadius: ["40px 60px 30px 50px", "30px 50px 60px 40px", "60px 30px 50px 40px"][i % 3] }}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+            {PHOTOS.map((p, i) => (
+              <button
+                key={p.src}
+                onClick={() => setActive(i)}
+                data-testid={`gallery-photo-${i + 1}`}
+                className={`group block w-full break-inside-avoid overflow-hidden border border-[#E8E3D3] bg-white ${radii[i % radii.length]} cursor-zoom-in transition-transform hover:-translate-y-0.5`}
+                aria-label={p.alt}
               >
-                <div
-                  className={`absolute inset-4 ${t.shape} dots-pattern`}
-                  style={{ background: t.color }}
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 />
-                <div className="absolute inset-12 bg-[#FDFBF7] blob-shape-2 grid place-items-center text-center p-6">
-                  <div>
-                    <ImageIcon className="w-7 h-7 text-[#4B5E53] mx-auto mb-2 opacity-50" strokeWidth={1.5} />
-                    <div className="font-display text-2xl font-semibold text-[#1E2E24]">{t.label}</div>
-                    <div className="font-script text-lg text-[#E2725B] mt-1">{t.sub}</div>
-                  </div>
-                </div>
-              </div>
+              </button>
             ))}
           </div>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-4 text-center">
+          <div className="mt-14 grid md:grid-cols-3 gap-4 text-center">
             {[
               { n: "80", l: "Jahre Vereinsleben" },
               { n: "54", l: "kleine Welten" },
-              { n: "∞", l: "Geschichten" },
+              { n: PHOTOS.length, l: "Eindrücke hier" },
             ].map((s) => (
               <div key={s.l} className="bg-[#F4F1E1] rounded-3xl p-6 border border-[#E8E3D3]">
                 <div className="font-display text-4xl font-semibold text-[#4A7C59]">{s.n}</div>
@@ -85,6 +79,29 @@ const Galerie = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      {active !== null && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm grid place-items-center p-4 sm:p-10 cursor-zoom-out"
+          onClick={() => setActive(null)}
+          data-testid="gallery-lightbox"
+        >
+          <button
+            className="absolute top-5 right-5 w-11 h-11 grid place-items-center rounded-full bg-white text-[#1E2E24] hover:bg-[#F9A03F] transition-colors"
+            onClick={() => setActive(null)}
+            aria-label="Schließen"
+            data-testid="gallery-lightbox-close"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <img
+            src={PHOTOS[active].src}
+            alt={PHOTOS[active].alt}
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+          />
+        </div>
+      )}
     </div>
   );
 };

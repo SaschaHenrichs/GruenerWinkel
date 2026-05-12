@@ -23,6 +23,23 @@ const Vorstand = () => {
 
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          {/* Foto-Banner */}
+          <div className="mb-12 grid grid-cols-3 gap-3 sm:gap-5">
+            {[
+              { src: "g08.jpg", r: "rounded-[30px_50px_40px_60px]" },
+              { src: "g19.jpg", r: "rounded-[50px_30px_60px_40px]" },
+              { src: "g30.jpg", r: "rounded-[40px_60px_30px_50px]" },
+            ].map((p) => (
+              <img
+                key={p.src}
+                src={`/images/gallery/${p.src}`}
+                alt="Eindruck aus dem Verein"
+                loading="lazy"
+                className={`${p.r} w-full h-32 sm:h-48 object-cover border border-[#E8E3D3]`}
+              />
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m) => (
               <div

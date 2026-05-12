@@ -71,6 +71,20 @@ const Anfahrt = () => {
             />
           </div>
         </div>
+
+        {/* Foto-Strip */}
+        <div className="mx-auto max-w-7xl px-5 lg:px-10 mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          {["g07.jpg", "g15.jpg", "g26.jpg", "g37.jpg"].map((f, i) => (
+            <img
+              key={f}
+              src={`/images/gallery/${f}`}
+              alt="Eindruck aus dem Verein"
+              loading="lazy"
+              className="w-full aspect-[4/3] object-cover border border-[#E8E3D3]"
+              style={{ borderRadius: ["30px 50px 40px 60px", "50px 30px 60px 40px", "40px 60px 30px 50px", "60px 30px 50px 40px"][i] }}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );
