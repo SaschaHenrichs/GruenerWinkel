@@ -15,12 +15,12 @@ const Recht = () => {
       <section className="pb-20 overflow-x-hidden w-full">
         <div className="mx-auto max-w-7xl px-5 lg:px-10 grid lg:grid-cols-3 gap-4 lg:gap-6 w-full min-w-0">
           {/* BKleingG */}
-          <article className="lg:col-span-2 min-w-0 overflow-hidden bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8 lg:p-10">
+          <article className="lg:col-span-2 min-w-0 bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8 lg:p-10">
             <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#4A7C59]/12 text-[#4A7C59] blob-shape-1 mb-5">
               <Scale className="w-6 h-6" />
             </span>
             <span className="font-script text-xl text-[#E2725B] block">— Grundlage —</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight mt-1 mb-5 break-words">
+            <h2 className="font-display text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold tracking-tight mt-1 mb-5">
               Bundeskleingartengesetz (BKleingG)
             </h2>
             <p className="text-[#4B5E53] leading-relaxed mb-4">
