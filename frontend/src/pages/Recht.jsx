@@ -12,10 +12,10 @@ const Recht = () => {
         breadcrumb="Recht & Regeln"
       />
 
-      <section className="pb-20">
+      <section className="pb-20 overflow-x-hidden">
         <div className="mx-auto max-w-7xl px-5 lg:px-10 grid lg:grid-cols-3 gap-6">
           {/* BKleingG */}
-          <article className="lg:col-span-2 bg-white border border-[#E8E3D3] rounded-3xl p-8 sm:p-10">
+          <article className="lg:col-span-2 bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8 lg:p-10">
             <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#4A7C59]/12 text-[#4A7C59] blob-shape-1 mb-5">
               <Scale className="w-6 h-6" />
             </span>
@@ -59,7 +59,7 @@ const Recht = () => {
           </article>
 
           {/* Side card – Verband */}
-          <aside className="bg-[#1E2E24] text-white rounded-3xl p-8 relative overflow-hidden">
+          <aside className="bg-[#1E2E24] text-white rounded-3xl p-5 sm:p-8 relative overflow-hidden">
             <div aria-hidden className="absolute -bottom-12 -right-12 w-48 h-48 bg-[#4A7C59]/30 blob-shape-1" />
             <div className="relative">
               <Building className="w-8 h-8 text-[#F9A03F] mb-4" />
@@ -85,7 +85,7 @@ const Recht = () => {
           </aside>
 
           {/* GuBO */}
-          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-8 sm:p-10 lg:col-span-3">
+          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8 lg:p-10 lg:col-span-3">
             <div className="grid lg:grid-cols-2 gap-10">
               <div>
                 <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#E2725B]/12 text-[#E2725B] blob-shape-1 mb-5">
@@ -108,7 +108,7 @@ const Recht = () => {
                 </p>
               </div>
 
-              <ul className="grid sm:grid-cols-2 gap-3">
+              <ul className="grid gap-3 sm:grid-cols-2">
                 {[
                   { t: "Lauben", d: "Max. 24 m² Grundfläche inkl. überdachtem Freisitz. Kein dauerhaftes Wohnen." },
                   { t: "Bäume & Hecken", d: "Höhen und Abstände sind geregelt; großwüchsige Waldbäume sind unzulässig." },
@@ -127,7 +127,7 @@ const Recht = () => {
           </article>
 
           {/* Schottergärten */}
-          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-8">
+          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8">
             <span className="grid place-items-center w-12 h-12 rounded-2xl bg-[#E2725B]/12 text-[#E2725B] blob-shape-1 mb-4">
               <ShieldAlert className="w-5 h-5" />
             </span>
@@ -142,7 +142,7 @@ const Recht = () => {
           </article>
 
           {/* Hecken */}
-          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-8">
+          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8">
             <span className="grid place-items-center w-12 h-12 rounded-2xl bg-[#4A7C59]/12 text-[#4A7C59] blob-shape-1 mb-4">
               <Trees className="w-5 h-5" />
             </span>
@@ -157,7 +157,7 @@ const Recht = () => {
           </article>
 
           {/* Bienen */}
-          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-8">
+          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8">
             <span className="grid place-items-center w-12 h-12 rounded-2xl bg-[#F9A03F]/15 text-[#F9A03F] blob-shape-1 mb-4">
               <Bug className="w-5 h-5" />
             </span>
@@ -172,8 +172,8 @@ const Recht = () => {
           </article>
 
           {/* Boden + Naturschutz */}
-          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-8 sm:p-10 lg:col-span-3">
-            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10">
+          <article className="bg-white border border-[#E8E3D3] rounded-3xl p-5 sm:p-8 lg:p-10 lg:col-span-3">
+            <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
               <div>
                 <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#4A7C59]/12 text-[#4A7C59] blob-shape-1 mb-5">
                   <Sprout className="w-6 h-6" />
@@ -211,7 +211,7 @@ const Recht = () => {
           </article>
 
           {/* Disclaimer */}
-          <div className="lg:col-span-3 bg-[#1E2E24]/5 border border-[#E8E3D3] rounded-3xl p-6 text-sm text-[#4B5E53] leading-relaxed">
+          <div className="lg:col-span-3 bg-[#1E2E24]/5 border border-[#E8E3D3] rounded-3xl p-4 sm:p-6 text-sm text-[#4B5E53] leading-relaxed">
             <strong className="text-[#1E2E24]">Hinweis:</strong> Diese Übersicht ersetzt keine
             Rechtsberatung. Verbindlich sind das Bundeskleingartengesetz, die Garten- und
             Bauordnung des Verbandes sowie die Vereinssatzung. Aktuelle Fassungen erhaltet ihr beim
