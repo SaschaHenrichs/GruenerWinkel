@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { Mailbox, Droplets, Bell } from "lucide-react";
+import { Mailbox, Droplets, Bell, CalendarOff } from "lucide-react";
 
 const Aktuelles = () => {
   return (
@@ -14,6 +14,27 @@ const Aktuelles = () => {
 
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
+          {/* Keine-Termine-Hinweis */}
+          <div
+            data-testid="no-events-notice"
+            className="mb-10 bg-white border border-[#E8E3D3] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5"
+          >
+            <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#E2725B]/12 text-[#E2725B] blob-shape-1 shrink-0">
+              <CalendarOff className="w-6 h-6" />
+            </span>
+            <div className="flex-1">
+              <span className="font-script text-xl text-[#E2725B] block leading-none">— kurze Info —</span>
+              <h2 className="font-display text-xl sm:text-2xl font-semibold text-[#1E2E24] mt-1 mb-2">
+                Aktuell stehen keine Termine an.
+              </h2>
+              <p className="text-sm text-[#4B5E53] leading-relaxed">
+                Sobald neue Termine feststehen, findet ihr sie an dieser Stelle und am Schwarzen
+                Brett im Vereinsheim. Bei Fragen meldet euch gerne beim{" "}
+                <Link to="/vorstand" className="text-[#4A7C59] font-bold hover:underline">Vorstand</Link>.
+              </p>
+            </div>
+          </div>
+
           {/* Foto-Banner */}
           <div className="mb-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {["g06.jpg", "g22.jpg", "g35.jpg", "g42.jpg"].map((f, i) => (
