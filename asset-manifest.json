@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GruenerWinkel/static/css/main.eaff6891.css",
+    "main.js": "/GruenerWinkel/static/js/main.72fc16b6.js",
+    "index.html": "/GruenerWinkel/index.html",
+    "main.eaff6891.css.map": "/GruenerWinkel/static/css/main.eaff6891.css.map",
+    "main.72fc16b6.js.map": "/GruenerWinkel/static/js/main.72fc16b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eaff6891.css",
+    "static/js/main.72fc16b6.js"
+  ]
+}
