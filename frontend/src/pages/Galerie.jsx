@@ -1,10 +1,9 @@
 import { useState } from "react";
 import PageHero from "@/components/PageHero";
-import { X, Camera } from "lucide-react";
+import { X, Camera, ChevronLeft, ChevronRight } from "lucide-react";
 
-// 45 echte Vereinsfotos aus dem Drive + von der bestehenden Seite
 const PHOTOS = Array.from({ length: 45 }, (_, i) => ({
-  src: `/images/gallery/g${String(i + 1).padStart(2, "0")}.jpg`,
+  src: process.env.PUBLIC_URL + `/images/gallery/g${String(i + 1).padStart(2, "0")}.jpg`,
   alt: `Eindruck aus dem KGV Grüner Winkel ${i + 1}`,
 }));
 
@@ -19,6 +18,9 @@ const radii = [
 
 const Galerie = () => {
   const [active, setActive] = useState(null);
+
+  const prev = (e) => { e.stopPropagation(); setActive((a) => (a > 0 ? a - 1 : PHOTOS.length - 1)); };
+  const next = (e) => { e.stopPropagation(); setActive((a) => (a < PHOTOS.length - 1 ? a + 1 : 0)); };
 
   return (
     <div data-testid="galerie-page">
@@ -83,23 +85,41 @@ const Galerie = () => {
       {/* Lightbox */}
       {active !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm grid place-items-center p-4 sm:p-10 cursor-zoom-out"
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-10"
           onClick={() => setActive(null)}
           data-testid="gallery-lightbox"
         >
           <button
-            className="absolute top-5 right-5 w-11 h-11 grid place-items-center rounded-full bg-white text-[#1E2E24] hover:bg-[#F9A03F] transition-colors"
+            className="absolute top-5 right-5 w-11 h-11 grid place-items-center rounded-full bg-white text-[#1E2E24] hover:bg-[#F9A03F] transition-colors z-10"
             onClick={() => setActive(null)}
             aria-label="Schließen"
             data-testid="gallery-lightbox-close"
           >
             <X className="w-5 h-5" />
           </button>
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/20 hover:bg-white text-white hover:text-[#1E2E24] transition-colors z-10"
+            onClick={prev}
+            aria-label="Vorheriges Bild"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 grid place-items-center rounded-full bg-white/20 hover:bg-white text-white hover:text-[#1E2E24] transition-colors z-10"
+            onClick={next}
+            aria-label="Nächstes Bild"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
           <img
             src={PHOTOS[active].src}
             alt={PHOTOS[active].alt}
-            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+            className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl cursor-default"
+            onClick={(e) => e.stopPropagation()}
           />
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm font-script text-lg">
+            {active + 1} / {PHOTOS.length}
+          </div>
         </div>
       )}
     </div>
