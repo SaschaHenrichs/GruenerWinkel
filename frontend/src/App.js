@@ -6,7 +6,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Vorstand from "@/pages/Vorstand";
 import Aktuelles from "@/pages/Aktuelles";
-import Feste from "@/pages/Feste";
+import Recht from "@/pages/Recht";
 import Anfahrt from "@/pages/Anfahrt";
 import Vereinsheim from "@/pages/Vereinsheim";
 import Winterdienst from "@/pages/Winterdienst";
@@ -26,7 +26,7 @@ function App() {
             <Route path="/wir-ueber-uns" element={<About />} />
             <Route path="/vorstand" element={<Vorstand />} />
             <Route path="/aktuelles" element={<Aktuelles />} />
-            <Route path="/feste" element={<Feste />} />
+            <Route path="/recht" element={<Recht />} />
             <Route path="/anfahrt" element={<Anfahrt />} />
             <Route path="/vereinsheim" element={<Vereinsheim />} />
             <Route path="/winterdienst" element={<Winterdienst />} />
@@ -46,8 +46,8 @@ function App() {
             color: "#fff",
             border: "none",
             borderRadius: "9999px",
-            fontFamily: "Quicksand, sans-serif",
-            fontWeight: 600,
+            fontFamily: "Nunito, sans-serif",
+            fontWeight: 700,
           },
         }}
       />

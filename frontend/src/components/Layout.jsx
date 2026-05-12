@@ -1,17 +1,20 @@
 import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, Leaf, MapPin, Phone, Mail } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "Startseite" },
   { to: "/wir-ueber-uns", label: "Wir über uns" },
   { to: "/vorstand", label: "Vorstand" },
   { to: "/aktuelles", label: "Aktuelles" },
-  { to: "/feste", label: "Feste" },
+  { to: "/recht", label: "Recht & Regeln" },
   { to: "/galerie", label: "Galerie" },
   { to: "/anfahrt", label: "Anfahrt" },
   { to: "/kontakt", label: "Kontakt" },
 ];
+
+const slug = (s) =>
+  s.toLowerCase().replace(/\s+/g, "-").replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/&/g, "und");
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
@@ -36,21 +39,23 @@ const Layout = () => {
         data-testid="site-header"
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-md bg-[#FDFBF7]/85 shadow-[0_4px_30px_rgba(74,124,89,0.08)]"
+            ? "backdrop-blur-md bg-[#FDFBF7]/90 shadow-[0_4px_30px_rgba(74,124,89,0.08)]"
             : "bg-transparent"
         }`}
       >
-        <div className="mx-auto max-w-7xl px-5 lg:px-10 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-5 lg:px-10 py-3 flex items-center justify-between">
           <Link to="/" data-testid="nav-logo" className="flex items-center gap-3 group">
-            <span className="grid place-items-center w-11 h-11 rounded-full bg-[#4A7C59] text-white blob-shape-1 transition-transform group-hover:rotate-6">
-              <Leaf className="w-5 h-5" strokeWidth={2.4} />
-            </span>
+            <img
+              src="/images/logo.jpg"
+              alt="KGV Grüner Winkel Logo"
+              className="w-12 h-12 object-cover blob-shape-1 group-hover:rotate-6 transition-transform shadow-sm"
+            />
             <span className="leading-tight">
-              <span className="block font-display text-[17px] font-semibold text-[#1E2E24]">
+              <span className="block font-display text-[18px] font-semibold text-[#1E2E24]">
                 KGV Grüner Winkel
               </span>
-              <span className="block text-[11px] uppercase tracking-[0.18em] text-[#4B5E53]">
-                e.V. · Duisburg
+              <span className="font-script block text-[15px] text-[#E2725B] -mt-0.5">
+                seit 1946 · Duisburg
               </span>
             </span>
           </Link>
@@ -62,9 +67,9 @@ const Layout = () => {
                 key={n.to}
                 to={n.to}
                 end={n.to === "/"}
-                data-testid={`nav-link-${n.label.toLowerCase().replace(/\s+/g, "-").replace(/ü/g, "u")}`}
+                data-testid={`nav-link-${slug(n.label)}`}
                 className={({ isActive }) =>
-                  `relative px-4 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 ${
+                  `relative px-4 py-2 rounded-full text-[14px] font-bold transition-all duration-200 ${
                     isActive
                       ? "bg-[#4A7C59] text-white shadow-[0_6px_18px_rgba(74,124,89,0.28)]"
                       : "text-[#1E2E24] hover:bg-[#4A7C59]/10"
@@ -95,12 +100,10 @@ const Layout = () => {
                   key={n.to}
                   to={n.to}
                   end={n.to === "/"}
-                  data-testid={`mobile-nav-link-${n.label.toLowerCase().replace(/\s+/g, "-").replace(/ü/g, "u")}`}
+                  data-testid={`mobile-nav-link-${slug(n.label)}`}
                   className={({ isActive }) =>
-                    `px-4 py-3 rounded-2xl text-[15px] font-semibold ${
-                      isActive
-                        ? "bg-[#4A7C59] text-white"
-                        : "text-[#1E2E24] hover:bg-[#4A7C59]/10"
+                    `px-4 py-3 rounded-2xl text-[15px] font-bold ${
+                      isActive ? "bg-[#4A7C59] text-white" : "text-[#1E2E24] hover:bg-[#4A7C59]/10"
                     }`
                   }
                 >
@@ -117,18 +120,20 @@ const Layout = () => {
       </main>
 
       {/* Footer */}
-      <footer data-testid="site-footer" className="mt-20 bg-[#1E2E24] text-[#FDFBF7]">
-        <div className="mx-auto max-w-7xl px-5 lg:px-10 py-14 grid gap-12 md:grid-cols-3">
+      <footer data-testid="site-footer" className="mt-20 bg-[#1E2E24] text-[#FDFBF7] relative overflow-hidden">
+        <div aria-hidden className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#4A7C59]/15 blob-shape-1" />
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-10 py-16 grid gap-12 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="grid place-items-center w-11 h-11 rounded-full bg-[#E2725B] blob-shape-1">
-                <Leaf className="w-5 h-5" />
-              </span>
-              <span className="font-display text-lg font-semibold">KGV Grüner Winkel e.V.</span>
+              <img src="/images/logo.jpg" alt="KGV Logo" className="w-12 h-12 object-cover blob-shape-1" />
+              <div>
+                <div className="font-display text-lg font-semibold">KGV Grüner Winkel e.V.</div>
+                <div className="font-script text-[#F9A03F] text-lg -mt-1">80 Jahre Gemeinschaft</div>
+              </div>
             </div>
             <p className="text-[#FDFBF7]/70 leading-relaxed text-sm">
               Seit 1946 ein grünes Zuhause für 54 Gartenfreundinnen und Gartenfreunde
-              mitten im Sportpark Wedau.
+              im Sportpark Wedau.
             </p>
           </div>
 
@@ -158,18 +163,21 @@ const Layout = () => {
               <li><Link to="/wir-ueber-uns" className="hover:text-[#F9A03F]">Wir über uns</Link></li>
               <li><Link to="/vorstand" className="hover:text-[#F9A03F]">Vorstand</Link></li>
               <li><Link to="/aktuelles" className="hover:text-[#F9A03F]">Aktuelles</Link></li>
-              <li><Link to="/feste" className="hover:text-[#F9A03F]">Feste</Link></li>
+              <li><Link to="/recht" className="hover:text-[#F9A03F]">Recht & Regeln</Link></li>
               <li><Link to="/galerie" className="hover:text-[#F9A03F]">Galerie</Link></li>
               <li><Link to="/winterdienst" className="hover:text-[#F9A03F]">Winterdienst</Link></li>
+              <li><Link to="/vereinsheim" className="hover:text-[#F9A03F]">Vereinsheim</Link></li>
               <li><Link to="/impressum" className="hover:text-[#F9A03F]">Impressum</Link></li>
-              <li><Link to="/datenschutz" className="hover:text-[#F9A03F]">Datenschutz</Link></li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/10">
+        <div className="relative border-t border-white/10">
           <div className="mx-auto max-w-7xl px-5 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#FDFBF7]/60">
             <span>© {new Date().getFullYear()} KGV Grüner Winkel e.V. – Alle Rechte vorbehalten.</span>
-            <span className="font-display tracking-wide">Im Verband Duisburger Kleingartenvereine e.V.</span>
+            <span className="font-script text-base text-[#F9A03F]/80">
+              Im Verband Duisburger Kleingartenvereine e.V.
+            </span>
+            <Link to="/datenschutz" className="hover:text-[#F9A03F]">Datenschutz</Link>
           </div>
         </div>
       </footer>

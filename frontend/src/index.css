@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #FDFBF7;
@@ -13,7 +13,12 @@ body {
 
 h1, h2, h3, h4, h5, h6, .font-display {
     font-family: 'Fredoka', sans-serif;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+}
+
+.font-script {
+    font-family: 'Caveat', cursive;
+    letter-spacing: 0;
 }
 
 code {
@@ -22,24 +27,23 @@ code {
 
 @layer base {
     :root {
-        /* KGV Earthy theme */
-        --background: 39 50% 97%;          /* #FDFBF7 */
-        --foreground: 145 23% 14%;         /* #1E2E24 */
+        --background: 39 50% 97%;
+        --foreground: 145 23% 14%;
         --card: 0 0% 100%;
         --card-foreground: 145 23% 14%;
         --popover: 0 0% 100%;
         --popover-foreground: 145 23% 14%;
-        --primary: 137 26% 39%;            /* moss green #4A7C59 */
+        --primary: 137 26% 39%;
         --primary-foreground: 0 0% 100%;
-        --secondary: 50 47% 92%;           /* sand */
+        --secondary: 50 47% 92%;
         --secondary-foreground: 145 23% 14%;
         --muted: 50 47% 92%;
-        --muted-foreground: 144 13% 33%;   /* #4B5E53 */
-        --accent: 13 70% 62%;              /* terracotta #E2725B */
+        --muted-foreground: 144 13% 33%;
+        --accent: 13 70% 62%;
         --accent-foreground: 0 0% 100%;
         --destructive: 0 75% 55%;
         --destructive-foreground: 0 0% 100%;
-        --border: 50 30% 87%;              /* #E8E3D3 */
+        --border: 50 30% 87%;
         --input: 50 30% 87%;
         --ring: 137 26% 39%;
         --radius: 1rem;
@@ -47,30 +51,36 @@ code {
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; }
 }
 
 /* Organic blob shapes */
-.blob-shape-1 {
-    border-radius: 47% 53% 70% 30% / 39% 45% 55% 61%;
-}
-.blob-shape-2 {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-}
-.blob-shape-3 {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
+.blob-shape-1 { border-radius: 47% 53% 70% 30% / 39% 45% 55% 61%; }
+.blob-shape-2 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+.blob-shape-3 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+.blob-shape-4 { border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; }
 
 /* Hand-drawn underline */
 .wavy-underline {
     background-image: linear-gradient(transparent 60%, rgba(226, 114, 91, 0.35) 60%);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+/* Sketchy underline using SVG */
+.sketchy-underline {
+    position: relative;
+    display: inline-block;
+}
+.sketchy-underline::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: -8px;
+    height: 12px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 6 Q 50 2, 100 6 T 198 6' stroke='%23E2725B' stroke-width='4' fill='none' stroke-linecap='round'/></svg>") center/100% 100% no-repeat;
 }
 
 /* Subtle paper grain */
@@ -83,7 +93,13 @@ code {
     background-position: 0 0, 12px 16px;
 }
 
-/* Soft entrance */
+/* Garden pattern dots */
+.dots-pattern {
+    background-image: radial-gradient(rgba(74, 124, 89, 0.18) 2px, transparent 2.5px);
+    background-size: 20px 20px;
+}
+
+/* Animations */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -96,11 +112,33 @@ code {
 }
 .animate-floaty { animation: floaty 6s ease-in-out infinite; }
 
-/* Hide horizontal scrollbar */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spinSlow 40s linear infinite; }
+
+@keyframes wiggle {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+.animate-wiggle { animation: wiggle 4s ease-in-out infinite; }
+
 html, body { overflow-x: hidden; }
-
-/* Smooth scroll */
 html { scroll-behavior: smooth; }
-
-/* Selection */
 ::selection { background: #4A7C59; color: #fff; }
+
+/* Decorative leaf bullet for lists */
+.leaf-list li {
+    position: relative;
+    padding-left: 1.75rem;
+}
+.leaf-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+    width: 14px;
+    height: 14px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234A7C59'><path d='M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8Z'/></svg>") center/contain no-repeat;
+}

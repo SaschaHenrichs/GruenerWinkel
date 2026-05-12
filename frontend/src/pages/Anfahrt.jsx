@@ -55,6 +55,9 @@ const Anfahrt = () => {
                 <li>· Sechs-Seen-Platte (Wandern & Erholung)</li>
                 <li>· Sportpark Wedau</li>
               </ul>
+              <p className="text-xs text-[#4B5E53] mt-4 font-script text-lg text-[#E2725B]">
+                Bezirk E (Mitte) im Verband Duisburger Kleingartenvereine e.V.
+              </p>
             </div>
           </div>
 
