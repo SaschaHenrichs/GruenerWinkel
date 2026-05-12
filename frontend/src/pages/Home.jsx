@@ -70,8 +70,8 @@ const Home = () => {
           <div className="relative animate-fade-up hidden lg:block" style={{ animationDelay: "0.1s" }}>
             <div className="relative w-full aspect-square max-w-[520px] mx-auto">
               <img
-                              src={process.env.PUBLIC_URL + "/images/gallery/g10.jpg"}
-                alt="Blühender Garten im KGV Grüner Winkel"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g48.jpg"}
+                alt="Luftaufnahme KGV Grüner Winkel Duisburg"
                 className="absolute inset-0 w-full h-full object-cover blob-shape-1 shadow-[0_30px_80px_-20px_rgba(74,124,89,0.45)]"
               />
               <img

@@ -2,9 +2,21 @@ import { useState } from "react";
 import PageHero from "@/components/PageHero";
 import { X, Camera, ChevronLeft, ChevronRight } from "lucide-react";
 
-const PHOTOS = Array.from({ length: 45 }, (_, i) => ({
-  src: process.env.PUBLIC_URL + `/images/gallery/g${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `Eindruck aus dem KGV Grüner Winkel ${i + 1}`,
+// Shuffled order: new aerial/exterior images (46-52) distributed among existing ones
+const ORDER = [
+  1,  2,  3, 46,  4,  5,  6,
+  7, 47,  8,  9, 10, 11, 48,
+  12, 13, 14, 15, 49, 16, 17,
+  18, 19, 20, 50, 21, 22, 23,
+  24, 25, 51, 26, 27, 28, 29,
+  30, 31, 52, 32, 33, 34, 35,
+  36, 37, 38, 39, 40, 41, 42,
+  43, 44, 45
+];
+
+const PHOTOS = ORDER.map((n) => ({
+  src: process.env.PUBLIC_URL + `/images/gallery/g${String(n).padStart(2, "0")}.jpg`,
+  alt: `Eindruck aus dem KGV Grüner Winkel`,
 }));
 
 const radii = [
