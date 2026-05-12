@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/GruenerWinkel/static/css/main.eaff6891.css",
-    "main.js": "/GruenerWinkel/static/js/main.87599114.js",
+    "main.js": "/GruenerWinkel/static/js/main.f9f74c17.js",
     "index.html": "/GruenerWinkel/index.html",
     "main.eaff6891.css.map": "/GruenerWinkel/static/css/main.eaff6891.css.map",
-    "main.87599114.js.map": "/GruenerWinkel/static/js/main.87599114.js.map"
+    "main.f9f74c17.js.map": "/GruenerWinkel/static/js/main.f9f74c17.js.map"
   },
   "entrypoints": [
     "static/css/main.eaff6891.css",
-    "static/js/main.87599114.js"
+    "static/js/main.f9f74c17.js"
   ]
 }
