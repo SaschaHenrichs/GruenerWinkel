@@ -75,7 +75,7 @@ const Kontakt = () => {
                     </span>
                     <div className="text-sm">
                       <div className="font-semibold mb-0.5">Telefon</div>
-                      <a href="tel:+4920393537 34" className="opacity-85 hover:opacity-100 hover:underline">
+                      <a href="tel:+492039353734" className="opacity-85 hover:opacity-100 hover:underline">
                         0203 9353734
                       </a>
                     </div>
@@ -104,7 +104,7 @@ const Kontakt = () => {
                 Für dringende Anliegen erreicht ihr unsere 1. Vorsitzende direkt mobil.
               </p>
               <a
-                href="tel:+4916246604 11"
+                href="tel:+491624660411"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#4A7C59] text-white font-semibold text-sm hover:bg-[#3A6347] transition-colors"
               >
                 <Phone className="w-4 h-4" /> 0162 4660411

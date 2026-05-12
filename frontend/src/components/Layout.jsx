@@ -141,7 +141,7 @@ const Layout = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#F9A03F]" />
-                <a href="tel:+4920393537 34" className="hover:underline">0203 9353734</a>
+                <a href="tel:+492039353734" className="hover:underline">0203 9353734</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#F9A03F]" />

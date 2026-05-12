@@ -16,7 +16,7 @@ const Impressum = () => {
             <p className="text-[#4B5E53] leading-relaxed">
               Kruppstraße 35a<br />
               47055 Duisburg<br />
-              Tel.: <a href="tel:+4920393537 34" className="text-[#4A7C59] hover:underline">0203 9353734</a><br />
+              Tel.: <a href="tel:+492039353734" className="text-[#4A7C59] hover:underline">0203 9353734</a><br />
               E-Mail: <a href="mailto:info@kgvgruenerwinkel.de" className="text-[#4A7C59] hover:underline">info@kgvgruenerwinkel.de</a><br />
               Web: <a href="https://www.kgvgruenerwinkel.de" className="text-[#4A7C59] hover:underline">www.kgvgruenerwinkel.de</a>
             </p>

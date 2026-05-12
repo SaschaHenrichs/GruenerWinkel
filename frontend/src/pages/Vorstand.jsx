@@ -67,7 +67,7 @@ const Vorstand = () => {
               </div>
               <div className="grid gap-4">
                 <a
-                  href="tel:+4920393537 34"
+                  href="tel:+492039353734"
                   className="flex items-center gap-4 bg-white/10 backdrop-blur rounded-2xl px-5 py-4 hover:bg-white/15 transition-colors"
                 >
                   <span className="grid place-items-center w-11 h-11 rounded-full bg-[#F9A03F]">
