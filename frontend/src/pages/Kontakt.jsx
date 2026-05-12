@@ -1,10 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import axios from "axios";
-
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 
 const Kontakt = () => {
   const [form, setForm] = useState({
@@ -15,29 +12,28 @@ const Kontakt = () => {
     nachricht: "",
     datenschutz: false,
   });
-  const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handle = (k) => (e) => {
     const v = e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setForm((s) => ({ ...s, [k]: v }));
   };
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    if (!form.datenschutz) {
-      toast.error("Bitte stimmen Sie der Datenschutzerklärung zu.");
-      return;
-    }
-    setSubmitting(true);
-    try {
-      await axios.post(`${API}/contact`, form);
-      toast.success("Nachricht gesendet – wir melden uns bald!");
-      setForm({ vorname: "", nachname: "", email: "", telefon: "", nachricht: "", datenschutz: false });
-    } catch (err) {
-      toast.error("Senden fehlgeschlagen. Bitte später erneut versuchen.");
-    } finally {
-      setSubmitting(false);
-    }
+    if (!form.datenschutz) return;
+
+    // Build mailto link
+    const subject = encodeURIComponent("Anfrage über kgvgruenerwinkel.de");
+    const body = encodeURIComponent(
+      `Name: ${form.vorname} ${form.nachname}\n` +
+      `E-Mail: ${form.email}\n` +
+      (form.telefon ? `Telefon: ${form.telefon}\n` : "") +
+      `\nNachricht:\n${form.nachricht}`
+    );
+    window.location.href = `mailto:info@kgvgruenerwinkel.de?subject=${subject}&body=${body}`;
+    setSent(true);
+    setTimeout(() => setSent(false), 5000);
   };
 
   return (
@@ -123,6 +119,13 @@ const Kontakt = () => {
             </h2>
             <p className="text-[#4B5E53] mb-8 text-sm">Wir freuen uns über Deine Nachricht. * Pflichtfelder</p>
 
+            {sent && (
+              <div className="mb-6 flex items-center gap-3 bg-[#4A7C59]/10 border border-[#4A7C59]/30 rounded-2xl px-5 py-4 text-[#4A7C59] font-semibold">
+                <CheckCircle className="w-5 h-5 shrink-0" />
+                Dein E-Mail-Programm öffnet sich gleich – bitte die Nachricht absenden.
+              </div>
+            )}
+
             <div className="grid sm:grid-cols-2 gap-5">
               <Field label="Vorname *" name="vorname" value={form.vorname} onChange={handle("vorname")} required />
               <Field label="Nachname *" name="nachname" value={form.nachname} onChange={handle("nachname")} required />
@@ -154,21 +157,21 @@ const Kontakt = () => {
               />
               <span className="text-sm text-[#4B5E53] leading-relaxed">
                 Ich erkläre mich mit der Verarbeitung der eingegebenen Daten sowie der{" "}
-                <a href="/datenschutz" className="text-[#4A7C59] font-semibold hover:underline">
+                <Link to="/datenschutz" className="text-[#4A7C59] font-semibold hover:underline">
                   Datenschutzerklärung
-                </a>{" "}
+                </Link>{" "}
                 einverstanden. *
               </span>
             </label>
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={!form.datenschutz}
               data-testid="contact-submit-button"
-              className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#4A7C59] text-white font-semibold hover:bg-[#3A6347] disabled:opacity-60 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5"
+              className="mt-8 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#4A7C59] text-white font-semibold hover:bg-[#3A6347] disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5"
             >
-              {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-              {submitting ? "Wird gesendet…" : "Nachricht senden"}
+              <Send className="w-4 h-4" />
+              Nachricht senden
             </button>
           </form>
         </div>

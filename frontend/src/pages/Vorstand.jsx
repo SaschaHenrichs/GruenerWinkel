@@ -5,7 +5,7 @@ const team = [
   { role: "1. Vorsitzende", name: "Alexandra Gliemko", phone: "0162 4660411", accent: "#4A7C59" },
   { role: "2. Vorsitzender", name: "Sascha Henrichs", accent: "#E2725B" },
   { role: "Schriftführerin", name: "Steffi Volkmer", accent: "#F9A03F" },
-  { role: "Kassenwart/in", name: "Wird bekannt gegeben", accent: "#4A7C59" },
+  { role: "Kassenwart/in", name: "Tino Reimann", accent: "#4A7C59" },
   { role: "Gartenwart", name: "Willi Winter & Totti Lauderbach", accent: "#E2725B" },
   { role: "Fachberatung", name: "Alexandra Gliemko", accent: "#F9A03F" },
   { role: "Vereinsheim", name: "Manuel Pelzer", phone: "0162 4670519", accent: "#4A7C59" },
