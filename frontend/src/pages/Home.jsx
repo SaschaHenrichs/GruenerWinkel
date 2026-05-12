@@ -70,7 +70,7 @@ const Home = () => {
           <div className="relative animate-fade-up hidden lg:block" style={{ animationDelay: "0.1s" }}>
             <div className="relative w-full aspect-square max-w-[520px] mx-auto">
               <img
-                src={process.env.PUBLIC_URL + "/images/gallery/g10.jpg"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g10.jpg"}
                 alt="Blühender Garten im KGV Grüner Winkel"
                 className="absolute inset-0 w-full h-full object-cover blob-shape-1 shadow-[0_30px_80px_-20px_rgba(74,124,89,0.45)]"
               />
@@ -156,7 +156,7 @@ const Home = () => {
                 className="w-full h-[480px] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
               />
               <img
-                src={process.env.PUBLIC_URL + "/images/gallery/g36.jpg"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g36.jpg"}
                 alt="Blumen im Verein"
                 className="hidden sm:block absolute -bottom-10 -left-8 w-40 h-40 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
               />
