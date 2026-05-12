@@ -37,7 +37,7 @@ const Aktuelles = () => {
                     <Calendar className="w-4 h-4" />
                   </span>
                   <span className="text-xs font-bold uppercase tracking-wider text-[#4A7C59]">
-                    Samstag, 17. Mai 2025 · 17:00 Uhr
+                    Sonntag, 17. Mai 2025 · 17:00 Uhr
                   </span>
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-semibold text-[#1E2E24] mb-2">
