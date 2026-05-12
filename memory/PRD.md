@@ -38,8 +38,14 @@ Neue Website für den Kleingartenverein "KGV Grüner Winkel e.V." (Duisburg). In
 - Verspieltere Schriften: **Caveat** (handgeschrieben, Akzente), **Fredoka** (Headlines), **Nunito** (Body)
 - SVG-Blattbullets für Listen statt Emoji
 
+### v3 (Dec 2025) – Echte Vereinsfotos & Verfeinerung
+- **45 echte Fotos** aus Google Drive heruntergeladen, web-optimiert (1600 px / quality 78) und unter `/app/frontend/public/images/gallery/g01-g45.jpg` abgelegt
+- Galerie-Seite komplett neu: Masonry-Layout mit allen 45 Fotos + Lightbox (Click-to-Enlarge)
+- Echte Fotos auf Home (Hero-Kollage + Gallery-Preview-Strip + About-Preview), About (Foto-Kachel), Vereinsheim, Vorstand (Foto-Banner), Aktuelles (Foto-Banner), Anfahrt (Foto-Strip)
+- "Keine Schottergärten in der Anlage"-Hinweis aus Aktuelles entfernt
+- Jubiläumsfest-Hinweise entfernt; faktische 80-Jahre-Heritage-Stats bleiben
+
 ## Backlog (P1)
-- Echte Vereinsbilder (Drive oder eigene Aufnahmen) hochladen → Galerie + Hero ersetzen
 - E-Mail-Versand des Kontaktformulars via Resend/SendGrid an info@kgvgruenerwinkel.de
 - Jubiläumsprogramm 2026 (Termine, Festfolge) konkretisieren und einpflegen
 - Vorstandsfotos pro Person
