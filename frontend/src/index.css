@@ -4,72 +4,45 @@
 
 body {
     margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
+    font-family: 'Quicksand', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #FDFBF7;
+    color: #1E2E24;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: -0.01em;
 }
 
 code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
+        /* KGV Earthy theme */
+        --background: 39 50% 97%;          /* #FDFBF7 */
+        --foreground: 145 23% 14%;         /* #1E2E24 */
         --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
+        --card-foreground: 145 23% 14%;
         --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --popover-foreground: 145 23% 14%;
+        --primary: 137 26% 39%;            /* moss green #4A7C59 */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 50 47% 92%;           /* sand */
+        --secondary-foreground: 145 23% 14%;
+        --muted: 50 47% 92%;
+        --muted-foreground: 144 13% 33%;   /* #4B5E53 */
+        --accent: 13 70% 62%;              /* terracotta #E2725B */
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 75% 55%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 50 30% 87%;              /* #E8E3D3 */
+        --input: 50 30% 87%;
+        --ring: 137 26% 39%;
+        --radius: 1rem;
     }
 }
 
@@ -82,34 +55,52 @@ code {
     }
 }
 
-@layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
-    }
-
-    [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
-    }
+/* Organic blob shapes */
+.blob-shape-1 {
+    border-radius: 47% 53% 70% 30% / 39% 45% 55% 61%;
 }
+.blob-shape-2 {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+.blob-shape-3 {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Hand-drawn underline */
+.wavy-underline {
+    background-image: linear-gradient(transparent 60%, rgba(226, 114, 91, 0.35) 60%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Subtle paper grain */
+.grain-bg {
+    background-color: #FDFBF7;
+    background-image:
+        radial-gradient(rgba(74, 124, 89, 0.05) 1px, transparent 1px),
+        radial-gradient(rgba(226, 114, 91, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px, 24px 24px;
+    background-position: 0 0, 12px 16px;
+}
+
+/* Soft entrance */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.21, 0.61, 0.35, 1) both; }
+
+@keyframes floaty {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+/* Hide horizontal scrollbar */
+html, body { overflow-x: hidden; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Selection */
+::selection { background: #4A7C59; color: #fff; }
