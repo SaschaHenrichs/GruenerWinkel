@@ -18,12 +18,12 @@ const About = () => {
           <div className="relative lg:sticky lg:top-28">
             <div className="relative w-full max-w-md mx-auto">
               <img
-                src="/images/gallery/g04.jpg"
+                src={process.env.PUBLIC_URL + "/images/gallery/g04.jpg"
                 alt="KGV Grüner Winkel – Eindruck"
                 className="w-full aspect-[4/5] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
               />
               <img
-                src="/images/gallery/g18.jpg"
+                src={process.env.PUBLIC_URL + "/images/gallery/g18.jpg"
                 alt="Detailaufnahme"
                 className="absolute -bottom-8 -left-6 w-36 h-36 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
               />

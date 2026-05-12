@@ -16,12 +16,12 @@ const Vereinsheim = () => {
           {/* Vereinsfoto */}
           <div className="relative w-full max-w-md mx-auto">
             <img
-              src="/images/gallery/g25.jpg"
+              src={process.env.PUBLIC_URL + "/images/gallery/g25.jpg"
               alt="Vereinsheim KGV Grüner Winkel"
               className="w-full aspect-[5/6] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
             />
             <img
-              src="/images/gallery/g41.jpg"
+              src={process.env.PUBLIC_URL + "/images/gallery/g41.jpg"
               alt="Detail aus dem Verein"
               className="absolute -bottom-8 -right-6 w-40 h-40 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
             />
