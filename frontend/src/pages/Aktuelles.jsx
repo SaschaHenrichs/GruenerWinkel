@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { Mailbox, Droplets, Bell, CalendarOff } from "lucide-react";
+import { Mailbox, Droplets, Bell, Calendar } from "lucide-react";
 
 const Aktuelles = () => {
   return (
@@ -15,24 +15,45 @@ const Aktuelles = () => {
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
           {/* Keine-Termine-Hinweis */}
-          <div
-            data-testid="no-events-notice"
-            className="mb-10 bg-white border border-[#E8E3D3] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5"
-          >
-            <span className="grid place-items-center w-14 h-14 rounded-2xl bg-[#E2725B]/12 text-[#E2725B] blob-shape-1 shrink-0">
-              <CalendarOff className="w-6 h-6" />
-            </span>
-            <div className="flex-1">
-              <span className="font-script text-xl text-[#E2725B] block leading-none">— kurze Info —</span>
-              <h2 className="font-display text-xl sm:text-2xl font-semibold text-[#1E2E24] mt-1 mb-2">
-                Aktuell stehen keine Termine an.
-              </h2>
-              <p className="text-sm text-[#4B5E53] leading-relaxed">
-                Sobald neue Termine feststehen, findet ihr sie an dieser Stelle und am Schwarzen
-                Brett im Vereinsheim. Bei Fragen meldet euch gerne beim{" "}
-                <Link to="/vorstand" className="text-[#4A7C59] font-bold hover:underline">Vorstand</Link>.
-              </p>
+          {/* Nächste Termine */}
+          <div className="mb-10 space-y-4">
+            <h2 className="font-display text-2xl font-semibold text-[#1E2E24]">
+              <span className="font-script text-2xl text-[#E2725B] block mb-1">— nächste Termine —</span>
+              Veranstaltungskalender
+            </h2>
+
+            {/* Jahreshauptversammlung */}
+            <div
+              data-testid="event-jahreshauptversammlung"
+              className="bg-white border-2 border-[#4A7C59] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-5"
+            >
+              <div className="flex flex-col items-center justify-center bg-[#4A7C59] text-white rounded-2xl px-5 py-4 min-w-[72px] text-center shrink-0">
+                <span className="font-display text-3xl font-semibold leading-none">17</span>
+                <span className="font-script text-lg leading-none mt-0.5">Mai</span>
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="grid place-items-center w-7 h-7 rounded-full bg-[#4A7C59]/12 text-[#4A7C59]">
+                    <Calendar className="w-4 h-4" />
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#4A7C59]">
+                    Samstag, 17. Mai 2025 · 17:00 Uhr
+                  </span>
+                </div>
+                <h3 className="font-display text-xl sm:text-2xl font-semibold text-[#1E2E24] mb-2">
+                  Jahreshauptversammlung
+                </h3>
+                <p className="text-sm text-[#4B5E53] leading-relaxed">
+                  Alle Mitglieder sind herzlich eingeladen. Ort: Vereinsheim KGV Grüner Winkel,
+                  Kruppstraße 35a, 47055 Duisburg. Bei Fragen meldet euch beim{" "}
+                  <Link to="/vorstand" className="text-[#4A7C59] font-bold hover:underline">Vorstand</Link>.
+                </p>
+              </div>
             </div>
+
+            <p className="text-xs text-[#4B5E53] px-2">
+              Weitere Termine werden rechtzeitig hier und am Schwarzen Brett im Vereinsheim bekanntgegeben.
+            </p>
           </div>
 
           {/* Foto-Banner */}
