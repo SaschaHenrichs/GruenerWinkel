@@ -25,6 +25,10 @@ node_modules/
 next-env.d.ts
 *.tsbuildinfo
 
+.vs/
+node_modules/
+build/
+
 # Production builds
 /build
 dist/
