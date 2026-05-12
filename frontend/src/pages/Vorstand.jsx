@@ -32,7 +32,7 @@ const Vorstand = () => {
             ].map((p) => (
               <img
                 key={p.src}
-                src={`/images/gallery/${p.src}`}
+                src={process.env.PUBLIC_URL + `/images/gallery/${p.src}`}
                 alt="Eindruck aus dem Verein"
                 loading="lazy"
                 className={`${p.r} w-full h-32 sm:h-48 object-cover border border-[#E8E3D3]`}
