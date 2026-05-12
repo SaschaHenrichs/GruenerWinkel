@@ -125,7 +125,7 @@ const Layout = () => {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-10 py-16 grid gap-12 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={process.env.PUBLIC_URL + "/images/logo.jpg" alt="KGV Logo" className="w-12 h-12 object-cover blob-shape-1" />
+                          <img src={process.env.PUBLIC_URL + "/images/logo.jpg"} alt="KGV Logo" className="w-12 h-12 object-cover blob-shape-1" />
               <div>
                 <div className="font-display text-lg font-semibold">KGV Grüner Winkel e.V.</div>
                 <div className="font-script text-[#F9A03F] text-lg -mt-1">80 Jahre Gemeinschaft</div>

@@ -75,12 +75,12 @@ const Home = () => {
                 className="absolute inset-0 w-full h-full object-cover blob-shape-1 shadow-[0_30px_80px_-20px_rgba(74,124,89,0.45)]"
               />
               <img
-                src={process.env.PUBLIC_URL + "/images/gallery/g03.jpg"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g03.jpg"}
                 alt="Sonnenblumen im Verein"
                 className="absolute -bottom-8 -left-8 w-44 h-44 object-cover blob-shape-2 border-4 border-[#FDFBF7] shadow-xl"
               />
               <img
-                src={process.env.PUBLIC_URL + "/images/gallery/g16.jpg"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g16.jpg"}
                 alt="Garten-Eindruck"
                 className="absolute -top-6 -right-6 w-36 h-36 object-cover blob-shape-3 border-4 border-[#FDFBF7] shadow-xl"
               />
@@ -151,7 +151,7 @@ const Home = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="relative">
               <img
-                src={process.env.PUBLIC_URL + "/images/gallery/g21.jpg"
+                              src={process.env.PUBLIC_URL + "/images/gallery/g21.jpg"}
                 alt="Im KGV Grüner Winkel"
                 className="w-full h-[480px] object-cover rounded-[60px_30px_60px_30px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)]"
               />
