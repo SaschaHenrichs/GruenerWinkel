@@ -280,7 +280,7 @@ const Home = () => {
                 style={{ borderRadius: ["40px 60px 30px 50px", "30px 50px 60px 40px", "60px 30px 50px 40px", "50px 60px 30px 40px"][i] }}
               >
                 <img
-                  src={`/images/gallery/${f}`}
+                  src={process.env.PUBLIC_URL + `/images/gallery/${f}`}
                   alt={`Eindruck ${i + 1}`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

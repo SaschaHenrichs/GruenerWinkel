@@ -40,7 +40,7 @@ const Aktuelles = () => {
             {["g06.jpg", "g22.jpg", "g35.jpg", "g42.jpg"].map((f, i) => (
               <img
                 key={f}
-                src={`/images/gallery/${f}`}
+                src={process.env.PUBLIC_URL + `/images/gallery/${f}`}
                 alt="Vereinsleben"
                 loading="lazy"
                 className="w-full aspect-square object-cover border border-[#E8E3D3]"

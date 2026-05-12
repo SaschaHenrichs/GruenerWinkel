@@ -77,7 +77,7 @@ const Anfahrt = () => {
           {["g07.jpg", "g15.jpg", "g26.jpg", "g37.jpg"].map((f, i) => (
             <img
               key={f}
-              src={`/images/gallery/${f}`}
+              src={process.env.PUBLIC_URL + `/images/gallery/${f}`}
               alt="Eindruck aus dem Verein"
               loading="lazy"
               className="w-full aspect-[4/3] object-cover border border-[#E8E3D3]"
