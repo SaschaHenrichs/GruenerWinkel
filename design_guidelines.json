@@ -1,0 +1,120 @@
+{
+  "project_info": {
+    "name": "KGV Gruener Winkel e.V. Website Redesign",
+    "domain": "Nature, Community, Garden Club",
+    "theme": "LIGHT",
+    "archetype": "1 (Organic & Earthy)",
+    "vibe": "Verspielt & einladend - warme Farben, organische Formen (Playful & inviting - warm colors, organic shapes)"
+  },
+  "colors": {
+    "background": "#FDFBF7",
+    "surface": "#FFFFFF",
+    "surface_alt": "#F4F1E1",
+    "primary": "#4A7C59",
+    "primary_hover": "#3A6347",
+    "accent_1": "#E2725B",
+    "accent_2": "#F9A03F",
+    "text_main": "#1E2E24",
+    "text_muted": "#4B5E53",
+    "border": "#E8E3D3"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Fredoka, sans-serif",
+      "weights": ["500", "600", "700"],
+      "usage_rules": "Use tracking-tight for H1/H2. Never use Inter for headings."
+    },
+    "body": {
+      "font_family": "Quicksand, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage_rules": "Use leading-relaxed for body text for better readability for older audience."
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Generous spacing. Use p-8, p-12, p-16 for sections. Avoid cramped layouts.",
+    "border_radius": "Use rounded-3xl for cards. Use pill shapes (rounded-full) for buttons.",
+    "organic_shapes": "Implement CSS 'blob' shapes for hero images and prominent graphics using custom border-radius (e.g., border-radius: 40% 60% 70% 30% / 40% 50% 60% 50% or similar Tailwind arbitrary classes like rounded-[40px_60px_70px_30px])."
+  },
+  "components": {
+    "buttons": "Pill-shaped (rounded-full), bold text, soft shadow. Primary: Moss Green background, White text. Accent: Terracotta background.",
+    "cards": "rounded-3xl, bg-white, soft diffuse shadow (shadow-sm or shadow-[0_8px_30px_rgba(74,124,89,0.08)]), border border-border.",
+    "navigation": "Sticky nav with glassmorphism (backdrop-blur-md bg-white/80). Links must be highly legible. Always include logo and CTA.",
+    "forms": "Use Shadcn forms but with heavily rounded inputs (rounded-2xl), soft borders, warm focus rings (focus:ring-primary/50)."
+  },
+  "pages_and_content": [
+    {
+      "name": "Startseite (Home)",
+      "content": "Hero section with organic blob image, welcome message 'Hallo liebe Gartenfreunde, herzlich Willkommen', quick links to Aktuelles and Feste."
+    },
+    {
+      "name": "Wir über uns (About)",
+      "content": "Founded 1946, 54 Parzellen, 18812qm. Mention location: near Friedhof, Sportpark Wedau, MSV-Arena, Regattabahn, Sechs-Seen-Platte."
+    },
+    {
+      "name": "Vorstandsteam",
+      "content": "List of board members. Use placeholder names (e.g., Max Mustermann - 1. Vorsitzender) if actual names are unknown."
+    },
+    {
+      "name": "Aktuelles (News)",
+      "content": "Latest news, e.g., 'Briefkasten - Kummerkasten am Clubhaus' info about water meter readings."
+    },
+    {
+      "name": "Feste & Termine",
+      "content": "Events list. Highlight 'St. Martin' (09.11.2024, Martinslieder, Weckmänner)."
+    },
+    {
+      "name": "Anfahrt",
+      "content": "Address: Kruppstraße 35a 47055 Duisburg. Embed Google Map or visual map."
+    },
+    {
+      "name": "Vereinsheim & Winterdienst",
+      "content": "Club house rental info (only for members) and Winter service details."
+    },
+    {
+      "name": "Galerie",
+      "content": "Photo gallery using organic grid layout."
+    },
+    {
+      "name": "Kontakt & Impressum",
+      "content": "Contact form routing to info@kgvgruenerwinkel.de. Standard legal pages."
+    }
+  ],
+  "media": {
+    "instructions": "For the actual app, you must create a gallery that intends to use the Google Drive link provided (https://drive.google.com/drive/folders/13Y4_szaulW0PN4DelBKnbAE6duaEBRl-?usp=sharing). Since you cannot fetch these directly, use the provided Unsplash URLs below as placeholders and add HTML comments like '<!-- REPLACE WITH GOOGLE DRIVE IMAGE -->' so the user knows where they go.",
+    "images": [
+      {
+        "category": "hero",
+        "url": "https://images.unsplash.com/photo-1560266444-5d1bd041d929?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHw0fHxhbGxvdG1lbnQlMjBnYXJkZW4lMjBzcHJpbmd8ZW58MHx8fHwxNzc4NTQ1OTUxfDA&ixlib=rb-4.1.0&q=85",
+        "description": "Yellow and blue flower field - Use as main hero background with organic blob masking"
+      },
+      {
+        "category": "community",
+        "url": "https://images.unsplash.com/photo-1513906029980-32d13afe6d8c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjBnYXJkZW4lMjBwZW9wbGV8ZW58MHx8fHwxNzc4NTQ1OTUxfDA&ixlib=rb-4.1.0&q=85",
+        "description": "People laughing in garden - Use for 'Wir über uns' or 'Vorstand'"
+      },
+      {
+        "category": "events",
+        "url": "https://images.unsplash.com/photo-1648136113216-8152fa9a1e31?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwzfHxzdCUyMG1hcnRpbiUyMGxhbnRlcm4lMjBmZXN0aXZhbHxlbnwwfHx8fDE3Nzg1NDU5NTF8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Lanterns - Use for Feste & Termine (St. Martin)"
+      },
+      {
+        "category": "gallery_placeholder_1",
+        "url": "https://images.unsplash.com/photo-1759716705561-3bbe0691770c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxhbGxvdG1lbnQlMjBnYXJkZW4lMjBzcHJpbmd8ZW58MHx8fHwxNzc4NTQ1OTUxfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "gallery_placeholder_2",
+        "url": "https://images.unsplash.com/photo-1689870565017-522b42ed0a6d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwzfHxhbGxvdG1lbnQlMjBnYXJkZW4lMjBzcHJpbmd8ZW58MHx8fHwxNzc4NTQ1OTUxfDA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "icons": "Use lucide-react with rounded strokes and slightly larger sizes to match the playful vibe.",
+  "testing": "All interactive elements (nav links, buttons, form submissions) MUST have data-testid attributes.",
+  "instructions_to_main_agent": [
+    "Build the website as a Single Page Application (SPA) with React Router for different routes, or a very long scrolling landing page with sections, but user explicitly asked for pages like 'Startseite', 'Wir über uns', etc. so use React Router.",
+    "Implement the 'playful and inviting' vibe strictly using the color palette provided (Warm sand background, Moss Green, Terracotta). Do not use sharp corners anywhere except maybe within complex tables if needed. Use rounded-3xl and rounded-full.",
+    "Add 'Fredoka' and 'Quicksand' from Google Fonts to the index.html or import them in CSS.",
+    "For images, apply organic border radii: e.g. className='rounded-[40px_80px_60px_30px]' to give them a natural, non-rigid feel.",
+    "Contact form must simulate sending to info@kgvgruenerwinkel.de. (UI only, or mailto: link).",
+    "Place Unsplash images but add HTML comments reminding the user to replace them with the Google Drive assets."
+  ]
+}
