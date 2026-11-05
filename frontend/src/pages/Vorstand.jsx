@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
-import { Phone, Mail, User } from "lucide-react";
+import { Phone, Mail, User, ArrowRight } from "lucide-react";
 
 const team = [
   { role: "1. Vorsitzende", name: "Alexandra Gliemko", phone: "0162 4660411", accent: "#4A7C59" },
@@ -67,6 +68,19 @@ const Vorstand = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Einstieg in die Werkzeuge des Vorstands. Bewusst ohne Erklaerung:
+              wer ihn braucht, weiss, was dahinter liegt. */}
+          <div className="mt-12">
+            <Link
+              to="/vorstandsbereich"
+              data-testid="link-vorstandsbereich"
+              className="inline-flex items-center gap-2 bg-[#4A7C59] text-white rounded-2xl px-5 py-3 text-sm font-semibold hover:bg-[#3A6347] transition-colors"
+            >
+              Vorstandsbereich
+              <ArrowRight className="w-4 h-4 opacity-80" />
+            </Link>
           </div>
 
           <div className="mt-12 bg-gradient-to-br from-[#4A7C59] to-[#3A6347] text-white rounded-[40px] p-10 sm:p-14 relative overflow-hidden">

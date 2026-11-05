@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Vorstand from "@/pages/Vorstand";
+import Vorstandsbereich from "@/pages/Vorstandsbereich";
 import Aktuelles from "@/pages/Aktuelles";
 import Recht from "@/pages/Recht";
 import Anfahrt from "@/pages/Anfahrt";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/wir-ueber-uns" element={<About />} />
             <Route path="/vorstand" element={<Vorstand />} />
+            <Route path="/vorstandsbereich" element={<Vorstandsbereich />} />
             <Route path="/aktuelles" element={<Aktuelles />} />
             <Route path="/recht" element={<Recht />} />
             <Route path="/anfahrt" element={<Anfahrt />} />
