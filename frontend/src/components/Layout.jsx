@@ -1,6 +1,6 @@
 import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Menu, X, MapPin, Phone, Mail } from "lucide-react";
+import { Menu, X, MapPin, Phone, Mail, Lock } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "Startseite" },
@@ -12,6 +12,12 @@ const NAV = [
   { to: "/anfahrt", label: "Anfahrt" },
   { to: "/kontakt", label: "Kontakt" },
 ];
+
+/* Steht bewusst nicht in NAV: der Vorstandsbereich ist kein Menüpunkt wie die
+   anderen, sondern ein abgesetzter Zugang am Ende — umrandet statt gefüllt,
+   hinter einem Trennstrich und mit Schloss. So ist vor dem Antippen zu sehen,
+   dass dort nicht die ganze Nachbarschaft hineinkommt. */
+const INTERN = { to: "/vorstandsbereich", label: "Vorstandsbereich" };
 
 const slug = (s) =>
   s.toLowerCase().replace(/\s+/g, "-").replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/&/g, "und");
@@ -60,8 +66,10 @@ const Layout = () => {
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop nav ab 1280 px, nicht schon ab 1024: mit dem neunten
+              Eintrag braucht die Leiste rund 1050 px, sonst bricht der
+              Vereinsname im Logo dreizeilig um. Darunter das Klappmenü. */}
+          <nav className="hidden xl:flex items-center gap-1">
             {NAV.map((n) => (
               <NavLink
                 key={n.to}
@@ -79,12 +87,29 @@ const Layout = () => {
                 {n.label}
               </NavLink>
             ))}
+
+            <span aria-hidden className="mx-2 h-5 w-px bg-[#D8D3C4]" />
+
+            <NavLink
+              to={INTERN.to}
+              data-testid="nav-link-vorstandsbereich"
+              className={({ isActive }) =>
+                `inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[13.5px] font-bold border transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#4A7C59] text-white border-[#4A7C59] shadow-[0_6px_18px_rgba(74,124,89,0.28)]"
+                    : "text-[#4B5E53] border-[#D8D3C4] hover:border-[#4A7C59] hover:text-[#1E2E24]"
+                }`
+              }
+            >
+              <Lock className="w-3.5 h-3.5 shrink-0" />
+              {INTERN.label}
+            </NavLink>
           </nav>
 
           <button
             onClick={() => setOpen((s) => !s)}
             data-testid="mobile-menu-toggle"
-            className="lg:hidden grid place-items-center w-11 h-11 rounded-full bg-white border border-[#E8E3D3] text-[#1E2E24]"
+            className="xl:hidden grid place-items-center w-11 h-11 rounded-full bg-white border border-[#E8E3D3] text-[#1E2E24]"
             aria-label="Menü"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -93,7 +118,7 @@ const Layout = () => {
 
         {/* Mobile menu */}
         {open && (
-          <div className="lg:hidden border-t border-[#E8E3D3] bg-[#FDFBF7]/95 backdrop-blur-md" data-testid="mobile-menu">
+          <div className="xl:hidden border-t border-[#E8E3D3] bg-[#FDFBF7]/95 backdrop-blur-md" data-testid="mobile-menu">
             <nav className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-1">
               {NAV.map((n) => (
                 <NavLink
@@ -110,6 +135,23 @@ const Layout = () => {
                   {n.label}
                 </NavLink>
               ))}
+
+              <span aria-hidden className="my-2 h-px bg-[#D8D3C4]" />
+
+              <NavLink
+                to={INTERN.to}
+                data-testid="mobile-nav-link-vorstandsbereich"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-4 py-3 rounded-2xl text-[15px] font-bold border ${
+                    isActive
+                      ? "bg-[#4A7C59] text-white border-[#4A7C59]"
+                      : "text-[#4B5E53] border-[#D8D3C4] hover:border-[#4A7C59] hover:text-[#1E2E24]"
+                  }`
+                }
+              >
+                <Lock className="w-4 h-4 shrink-0" />
+                {INTERN.label}
+              </NavLink>
             </nav>
           </div>
         )}
